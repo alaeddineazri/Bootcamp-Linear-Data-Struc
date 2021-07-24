@@ -1,0 +1,41 @@
+ALGORITHM sum_of_overlapping_2
+VAR
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    arr1 : ARRAY_OF INTEGER[10];
+    arr2 : ARRAY_OF INTEGER[10]; 
+    i,j,k,sum : INTEGER=0;     
+    count : INTEGER;
+
+BEGIN
+    FOR i FROM 0 TO arr1.length-1 STEP step  DO
+        Write("give the element of array 1");
+        Read (arr1[i]);
+    END_FOR
+    FOR j FROM 0 TO arr2.length-1 STEP step  DO
+    Write("give the element of array 2");
+    Read (arr1[j]);
+    END_FOR
+    FOR k FROM 0 TO arr1.length -1 STEP 1  DO
+        IF (htab.lookup(arr1[k]) = TRUE) THEN
+            count := htab.get(arr1[k]);
+            htab.insert(arr1[k],count+1);
+        ELSE
+            htab.insert(arr1[k],1);
+        END_IF
+    END_FOR
+    
+    FOR i FROM 0 TO arr1.length -1 STEP 1  DO
+        IF (htab.lookup(arr2[k]) = TRUE) THEN
+            count := htab.get(arr2[k]);
+            htab.insert(arr2[k],count+1);
+        ELSE
+            htab.insert(arr2[k],1);
+        END_IF
+    END_FOR
+    FOR k FROM 0 TO arr1.length -1 STEP 1  DO
+        IF (htab.get(arr1[k]) = 2) THEN
+            sum= sum+arr1[i]*2;
+        END_IF
+    END_FOR
+    Write   ("Sum of Overlapping Elements :", sum)
+END

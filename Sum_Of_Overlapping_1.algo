@@ -1,0 +1,26 @@
+ALGORITHM sum_of_overlapping_1
+
+VAR
+    arr1 : ARRAY_OF INTEGER[10]; 
+    arr2 : ARRAY_OF INTEGER[10]; 
+    i,j,sum : INTEGER=0; 
+BEGIN
+
+    FOR i FROM 0 TO arr1.length-1 STEP step  DO
+        Write("give the element of array 1");
+        Read (arr1[i]);
+    END_FOR
+
+    FOR j FROM 0 TO arr2.length-1 STEP step  DO
+    Write("give the element of array 2");
+    Read (arr1[j]);
+    END_FOR
+
+    FOR i FROM 0 TO arr1.length-1 STEP step  DO
+        FOR j FROM 0 TO arr2.length-1 STEP step  DO
+            IF (arr1[i]=arr1[j]) THEN
+            sum := sum + tab[i] * 2;            
+        END_FOR
+    END_FOR
+    Write   ("Sum of Overlapping Elements :", sum)
+END
